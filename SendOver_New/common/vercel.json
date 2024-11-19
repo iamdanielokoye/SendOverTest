@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/webhook", "destination": "/customer-interactions/index.js" },
+    { "source": "/track", "destination": "/shipment-tracking/index.js" },
+    { "source": "/payment", "destination": "/payment-automation/index.js" },
+    { "source": "/locations", "destination": "/drop-off-locations/index.js" },
+    { "source": "/final-delivery", "destination": "/final-mile-delivery/index.js" }
+  ]
+}
