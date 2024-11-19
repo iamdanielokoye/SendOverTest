@@ -6,22 +6,21 @@ const app = express();
 app.use(express.json());
 
 // Telegram Webhook
-app.post("/webhook", async (req, res) => {
-  const message = req.body.message;
+app.post('/webhook', (req, res) => {
+  console.log("Received request:", JSON.stringify(req.body, null, 2)); // Log incoming request
+  const { message } = req.body;
 
-  if (message && message.text) {
-    const chatId = message.chat.id;
-    const userMessage = message.text;
-
-    // Get AI response
-    const response = await handleMessage(userMessage);
-
-    // Send response back to Telegram
-    await sendMessage(chatId, response);
+  if (message) {
+      console.log(`Message received: ${message.text}`); // Log message text
+      // Handle message logic
+      bot.sendMessage(message.chat.id, "Hello!");
+  } else {
+      console.log("No message found in the request.");
   }
 
   res.sendStatus(200);
 });
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Customer interaction module running on ${PORT}`));
