@@ -6,4 +6,9 @@
     { "source": "/locations", "destination": "/drop-off-locations/index.js" },
     { "source": "/final-delivery", "destination": "/final-mile-delivery/index.js" }
   ]
+  {
+  "routes": [
+    { "src": "/webhook", "dest": "api/webhook.js" }
+  ]
+}
 }
